@@ -214,7 +214,7 @@ public class AndroidMirahPlugin implements Plugin<Project> {
         def compilerConfiguration = project.configurations.findByName(compilerConfigurationName)
         if (!compilerConfiguration) {
             compilerConfiguration = project.configurations.create(compilerConfigurationName)
-            project.dependencies.add(compilerConfigurationName, "org.mirah-lang:mirah-compiler:$mirahVersion")
+            project.dependencies.add(compilerConfigurationName, "org.mirah:mirah-compiler:$mirahVersion")
         }
         def mirahCompileTask = project.tasks.create(taskName, MirahCompile)
         mirahCompileTask.source = mirahSources

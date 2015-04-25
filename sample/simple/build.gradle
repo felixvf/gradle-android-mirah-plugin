@@ -44,6 +44,6 @@ android {
 }
 
 dependencies {
-    compile "org.mirah-lang:mirah-library:2.11.6"
+    compile "org.mirah:mirah-library:2.11.6"
     compile "com.android.support:multidex:1.0.1"
 }

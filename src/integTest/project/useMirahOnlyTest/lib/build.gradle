@@ -30,7 +30,7 @@ android {
 dependencies {
     compile "com.android.support:multidex:1.0.1"
     androidTestCompile "com.android.support:multidex-instrumentation:1.0.1", { exclude module: "multidex" }
-    androidTestCompile "org.mirah-lang:mirah-library:$mirahLibraryVersion"
+    androidTestCompile "org.mirah:mirah-library:$mirahLibraryVersion"
 
     // to break 65535 method limitation
     androidTestCompile "org.mirahz:mirahz-core_$mirahDependencyVersion:7.0.6"

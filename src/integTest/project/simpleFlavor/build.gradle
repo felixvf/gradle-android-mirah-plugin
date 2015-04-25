@@ -67,7 +67,7 @@ android {
 }
 
 dependencies {
-    compile "org.mirah-lang:mirah-library:$mirahLibraryVersion"
+    compile "org.mirah:mirah-library:$mirahLibraryVersion"
     compile "com.android.support:multidex:1.0.1"
     androidTestCompile "com.android.support:multidex-instrumentation:1.0.1", { exclude module: "multidex" }
 }

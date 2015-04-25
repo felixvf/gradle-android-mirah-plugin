@@ -54,7 +54,7 @@ def AAVersion = "3.2"
 dependencies {
     apt "org.androidannotations:androidannotations:$AAVersion"
     compile "org.androidannotations:androidannotations-api:$AAVersion"
-    compile "org.mirah-lang:mirah-library:$mirahLibraryVersion"
+    compile "org.mirah:mirah-library:$mirahLibraryVersion"
     compile "com.android.support:multidex:1.0.1"
     androidTestCompile "com.android.support:multidex-instrumentation:1.0.1", { exclude module: "multidex" }
 }
