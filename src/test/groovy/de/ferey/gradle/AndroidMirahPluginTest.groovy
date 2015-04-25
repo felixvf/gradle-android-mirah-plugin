@@ -150,6 +150,6 @@ class AndroidMirahPluginTest {
     @Test
     public void mirahVersionFromClasspath() {
         def classpath = System.getProperty("java.class.path").split(File.pathSeparator).collect { new File(it) }
-        Assert.assertEquals("2.11.6", AndroidMirahPlugin.mirahVersionFromClasspath(classpath))
+        Assert.assertEquals("0.1.5-SNAPSHOT", AndroidMirahPlugin.mirahVersionFromClasspath(classpath))
     }
 }

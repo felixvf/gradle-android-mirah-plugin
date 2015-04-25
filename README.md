@@ -27,7 +27,7 @@ See also sample projects at https://github.com/saturday06/gradle-android-mirah-p
 
 | Mirah  | Gradle | Android Plugin | compileSdkVersion | buildToolsVersion |
 | ------ | ------ | -------------- | ----------------- | ----------------- |
-| 2.11.6 | 2.2.1  | 1.1.0 - 1.1.3  | 21 - 22           | 21.1.1 - 22.0.1   |
+| 0.1.5-SNAPSHOT | 2.2.1  | 1.1.0 - 1.1.3  | 21 - 22           | 21.1.1 - 22.0.1   |
 | 2.10.5 | 2.2.1  | 1.1.0 - 1.1.3  | 21 - 22           | 21.1.1 - 22.0.1   |
 
 If you want to use older build environment,
@@ -62,7 +62,7 @@ The plugin decides mirah language version using mirah-library's version.
 `build.gradle`
 ```groovy
 dependencies {
-#   compile "org.mirah:mirah-library:2.11.6"
+#   compile "org.mirah:mirah-library:0.1.5-SNAPSHOT"
 }
 ```
 
@@ -144,7 +144,7 @@ android {
 }
 
 dependencies {
-#   compile "org.mirah:mirah-library:2.11.6"
+#   compile "org.mirah:mirah-library:0.1.5-SNAPSHOT"
     compile "com.android.support:multidex:1.0.1"
 }
 ```
@@ -173,7 +173,7 @@ android {
 }
 
 dependencies {
-#   compile "org.mirah:mirah-library:2.11.6"
+#   compile "org.mirah:mirah-library:0.1.5-SNAPSHOT"
     compile "com.android.support:multidex:1.0.1"
     androidTestCompile "com.android.support:multidex-instrumentation:1.0.1", { exclude module: "multidex" }
 }
@@ -310,7 +310,7 @@ android {
 }
 
 dependencies {
-#   compile "org.mirah:mirah-library:2.11.6"
+#   compile "org.mirah:mirah-library:0.1.5-SNAPSHOT"
     compile "com.android.support:multidex:1.0.1"
     androidTestCompile "com.android.support:multidex-instrumentation:1.0.1", { exclude module: "multidex" }
 }
