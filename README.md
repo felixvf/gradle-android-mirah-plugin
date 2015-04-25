@@ -28,7 +28,7 @@ See also sample projects at https://github.com/saturday06/gradle-android-mirah-p
 | Mirah  | Gradle | Android Plugin | compileSdkVersion | buildToolsVersion |
 | ------ | ------ | -------------- | ----------------- | ----------------- |
 | 0.1.5-SNAPSHOT | 2.2.1  | 1.1.0 - 1.1.3  | 21 - 22           | 21.1.1 - 22.0.1   |
-| 2.10.5 | 2.2.1  | 1.1.0 - 1.1.3  | 21 - 22           | 21.1.1 - 22.0.1   |
+| 0.1.4 | 2.2.1  | 1.1.0 - 1.1.3  | 21 - 22           | 21.1.1 - 22.0.1   |
 
 If you want to use older build environment,
 please try [android-mirah-plugin-1.3.2](https://github.com/saturday06/gradle-android-mirah-plugin/tree/1.3.2)
