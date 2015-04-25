@@ -42,7 +42,7 @@ please try [android-scala-plugin-1.3.2](https://github.com/saturday06/gradle-and
 buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:1.1.3"
-        classpath "jp.leafytree.gradle:gradle-android-scala-plugin:1.4"
+        classpath "de.ferey.gradle:gradle-android-scala-plugin:1.4"
     }
 }
 ```
@@ -261,7 +261,7 @@ buildscript {
 
     dependencies {
         classpath "com.android.tools.build:gradle:1.1.3"
-        classpath "jp.leafytree.gradle:gradle-android-scala-plugin:1.4"
+        classpath "de.ferey.gradle:gradle-android-scala-plugin:1.4"
     }
 }
 

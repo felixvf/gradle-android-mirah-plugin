@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package jp.leafytree.gradle
+package de.ferey.gradle
 import com.google.common.annotations.VisibleForTesting
 import org.apache.commons.io.FileUtils
 import org.codehaus.groovy.runtime.InvokerHelper

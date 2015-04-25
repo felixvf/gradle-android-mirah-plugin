@@ -8,7 +8,7 @@ buildscript {
 
     dependencies {
         classpath "com.android.tools.build:gradle:$androidPluginVersion"
-        classpath "jp.leafytree.gradle:gradle-android-scala-plugin:$androidScalaPluginVersion"
+        classpath "de.ferey.gradle:gradle-android-scala-plugin:$androidScalaPluginVersion"
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4+'
     }
 }

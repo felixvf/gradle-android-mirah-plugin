@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package jp.leafytree.gradle
+package de.ferey.gradle
 
 import org.apache.tools.ant.taskdefs.condition.Os
 
