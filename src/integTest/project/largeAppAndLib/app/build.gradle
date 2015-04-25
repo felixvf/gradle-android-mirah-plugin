@@ -38,8 +38,8 @@ android {
 }
 
 dependencies {
-    flavor1Compile "org.mirah:mirah-library:$mirahLibraryVersion"
-    flavor2Compile "org.mirah:mirah-library:$mirahLibraryVersion"
+#   flavor1Compile "org.mirah:mirah-library:$mirahLibraryVersion"
+#   flavor2Compile "org.mirah:mirah-library:$mirahLibraryVersion"
     compile "com.android.support:multidex:1.0.1"
     compile project(":lib")
     androidTestCompile "com.android.support:multidex-instrumentation:1.0.1", { exclude module: "multidex" }

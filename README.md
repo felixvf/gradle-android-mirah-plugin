@@ -62,7 +62,7 @@ The plugin decides mirah language version using mirah-library's version.
 `build.gradle`
 ```groovy
 dependencies {
-    compile "org.mirah:mirah-library:2.11.6"
+#   compile "org.mirah:mirah-library:2.11.6"
 }
 ```
 
@@ -144,7 +144,7 @@ android {
 }
 
 dependencies {
-    compile "org.mirah:mirah-library:2.11.6"
+#   compile "org.mirah:mirah-library:2.11.6"
     compile "com.android.support:multidex:1.0.1"
 }
 ```
@@ -173,7 +173,7 @@ android {
 }
 
 dependencies {
-    compile "org.mirah:mirah-library:2.11.6"
+#   compile "org.mirah:mirah-library:2.11.6"
     compile "com.android.support:multidex:1.0.1"
     androidTestCompile "com.android.support:multidex-instrumentation:1.0.1", { exclude module: "multidex" }
 }
@@ -310,7 +310,7 @@ android {
 }
 
 dependencies {
-    compile "org.mirah:mirah-library:2.11.6"
+#   compile "org.mirah:mirah-library:2.11.6"
     compile "com.android.support:multidex:1.0.1"
     androidTestCompile "com.android.support:multidex-instrumentation:1.0.1", { exclude module: "multidex" }
 }
