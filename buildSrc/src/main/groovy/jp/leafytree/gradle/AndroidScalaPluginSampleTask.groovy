@@ -19,7 +19,7 @@ import com.google.common.io.ByteStreams
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
 
-class AndroidScalaPluginSampleTask extends DefaultTask {
+class AndroidMirahPluginSampleTask extends DefaultTask {
     @TaskAction
     def buildAndCheck() {
         [

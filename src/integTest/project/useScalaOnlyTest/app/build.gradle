@@ -1,5 +1,5 @@
 apply plugin: "com.android.application"
-apply plugin: "de.ferey.android-scala"
+apply plugin: "de.ferey.android-mirah"
 
 android {
     compileSdkVersion androidPluginCompileSdkVersion
@@ -27,5 +27,5 @@ android {
 
 dependencies {
     compile project(":lib")
-    androidTestCompile "org.scala-lang:scala-library:$scalaLibraryVersion"
+    androidTestCompile "org.mirah-lang:mirah-library:$mirahLibraryVersion"
 }

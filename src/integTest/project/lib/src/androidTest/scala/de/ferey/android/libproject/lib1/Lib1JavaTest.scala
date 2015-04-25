@@ -1,14 +1,14 @@
 package de.ferey.android.libproject.lib1
 
 import junit.framework.{TestCase, Assert}
-import scalaz.Scalaz._
+import mirahz.Mirahz._
 
 class Lib1JavaTest extends TestCase {
-  def testCallScalaClass() {
-    Assert.assertEquals("Lib1Scala", new Lib1Scala().getName)
+  def testCallMirahClass() {
+    Assert.assertEquals("Lib1Mirah", new Lib1Mirah().getName)
   }
 
-  def testScalazUsability() {
+  def testMirahzUsability() {
     Assert.assertEquals(12345, "12345".parseInt.getOrElse(0))
   }
 }

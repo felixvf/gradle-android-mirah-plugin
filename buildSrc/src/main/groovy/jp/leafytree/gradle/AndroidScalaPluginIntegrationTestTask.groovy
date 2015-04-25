@@ -19,7 +19,7 @@ import com.google.common.io.ByteStreams
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
 
-public class AndroidScalaPluginIntegrationTestTask extends DefaultTask {
+public class AndroidMirahPluginIntegrationTestTask extends DefaultTask {
     @TaskAction
     def run() {
         def travis = System.getenv("TRAVIS").toString().toBoolean()
@@ -28,9 +28,9 @@ public class AndroidScalaPluginIntegrationTestTask extends DefaultTask {
                 ["lib", false],
                 ["appAndLib", true],
                 ["largeAppAndLib", false],
-                ["noScala", false],
+                ["noMirah", false],
                 ["simpleFlavor", false],
-                ["useScalaOnlyTest", false],
+                ["useMirahOnlyTest", false],
                 ["apt", false],
         ].each { projectName, runOnTravis ->
             def gradleArgs = ["clean", "connectedCheck", "uninstallAll"]
@@ -63,17 +63,17 @@ public class AndroidScalaPluginIntegrationTestTask extends DefaultTask {
         gradleWrapperProperties
     }
 
-    def getGradleProperties(scalaLibraryVersion, androidPluginVersion, androidPluginCompileSdkVersion,
+    def getGradleProperties(mirahLibraryVersion, androidPluginVersion, androidPluginCompileSdkVersion,
                             androidPluginBuildToolsVersion, androidPluginMinSdkVersion, androidPluginTargetSdkVersion) {
-        // def snaphotRepositoryUrl = "http://saturday06.github.io/gradle-android-scala-plugin/repository/snapshot"
+        // def snaphotRepositoryUrl = "http://saturday06.github.io/gradle-android-mirah-plugin/repository/snapshot"
         def snaphotRepositoryUrl = [project.buildFile.parentFile.absolutePath, "gh-pages", "repository", "snapshot"].join(File.separator)
         def gradleProperties = new Properties()
         gradleProperties.putAll([
                 "org.gradle.jvmargs": "-Xmx2048m -XX:MaxPermSize=2048m -XX:+HeapDumpOnOutOfMemoryError",
                 snaphotRepositoryUrl: snaphotRepositoryUrl,
-                scalaLibraryVersion: scalaLibraryVersion,
-                scalaDependencyVersion: scalaLibraryVersion.split("\\.").take(2).join("."),
-                androidScalaPluginVersion: "1.5-SNAPSHOT",
+                mirahLibraryVersion: mirahLibraryVersion,
+                mirahDependencyVersion: mirahLibraryVersion.split("\\.").take(2).join("."),
+                androidMirahPluginVersion: "1.5-SNAPSHOT",
                 androidPluginVersion: androidPluginVersion,
                 androidPluginCompileSdkVersion: androidPluginCompileSdkVersion,
                 androidPluginBuildToolsVersion: androidPluginBuildToolsVersion,

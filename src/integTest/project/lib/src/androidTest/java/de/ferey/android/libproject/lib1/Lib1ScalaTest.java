@@ -2,9 +2,9 @@ package de.ferey.android.libproject.lib1;
 
 import junit.framework.TestCase;
 
-public class Lib1ScalaTest extends TestCase {
-    public void testCallScalaClass() {
-        assertEquals("Lib1Scala", new Lib1Scala().getName());
+public class Lib1MirahTest extends TestCase {
+    public void testCallMirahClass() {
+        assertEquals("Lib1Mirah", new Lib1Mirah().getName());
     }
 }
 

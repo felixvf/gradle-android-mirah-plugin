@@ -4,8 +4,8 @@
 
     <application>
         <activity
-            android:name="de.ferey.android.libproject.lib1.Lib1ScalaActivity"
-            android:label="Lib1ScalaActivity"></activity>
+            android:name="de.ferey.android.libproject.lib1.Lib1MirahActivity"
+            android:label="Lib1MirahActivity"></activity>
     </application>
 
 </manifest>

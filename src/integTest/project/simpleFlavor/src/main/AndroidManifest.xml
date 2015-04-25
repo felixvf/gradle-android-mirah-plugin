@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="de.ferey.android.hello.HelloScalaActivity">
+            android:name="de.ferey.android.hello.HelloMirahActivity">
         </activity>
     </application>
 

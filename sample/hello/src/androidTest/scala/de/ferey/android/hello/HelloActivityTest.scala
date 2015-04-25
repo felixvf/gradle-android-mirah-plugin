@@ -10,6 +10,6 @@ class HelloActivityTest extends ActivityInstrumentationTestCase2[HelloActivity](
   }
 
   def test2() {
-    Assert.assertEquals("Hello. I'm Java !", getActivity.findViewById(R.id.scala_text_view).asInstanceOf[TextView].getText)
+    Assert.assertEquals("Hello. I'm Java !", getActivity.findViewById(R.id.mirah_text_view).asInstanceOf[TextView].getText)
   }
 }

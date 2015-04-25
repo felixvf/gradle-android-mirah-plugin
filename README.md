@@ -1,7 +1,7 @@
-# gradle-android-scala-plugin
+# gradle-android-mirah-plugin
 
-gradle-android-scala-plugin adds scala language support to official gradle android plugin.
-See also sample projects at https://github.com/saturday06/gradle-android-scala-plugin/tree/master/sample
+gradle-android-mirah-plugin adds mirah language support to official gradle android plugin.
+See also sample projects at https://github.com/saturday06/gradle-android-mirah-plugin/tree/master/sample
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -11,8 +11,8 @@ See also sample projects at https://github.com/saturday06/gradle-android-scala-p
 - [Installation](#installation)
   - [1. Add buildscript's dependency](#1-add-buildscripts-dependency)
   - [2. Apply plugin](#2-apply-plugin)
-  - [3. Add scala-library dependency](#3-add-scala-library-dependency)
-  - [4. Put scala source files](#4-put-scala-source-files)
+  - [3. Add mirah-library dependency](#3-add-mirah-library-dependency)
+  - [4. Put mirah source files](#4-put-mirah-source-files)
   - [5. Implement a workaround for DEX 64K Methods Limit](#5-implement-a-workaround-for-dex-64k-methods-limit)
     - [5.1. Option 1: Use ProGuard](#51-option-1-use-proguard)
     - [5.2. Option 2: Use MultiDex](#52-option-2-use-multidex)
@@ -25,13 +25,13 @@ See also sample projects at https://github.com/saturday06/gradle-android-scala-p
 
 ## Supported versions
 
-| Scala  | Gradle | Android Plugin | compileSdkVersion | buildToolsVersion |
+| Mirah  | Gradle | Android Plugin | compileSdkVersion | buildToolsVersion |
 | ------ | ------ | -------------- | ----------------- | ----------------- |
 | 2.11.6 | 2.2.1  | 1.1.0 - 1.1.3  | 21 - 22           | 21.1.1 - 22.0.1   |
 | 2.10.5 | 2.2.1  | 1.1.0 - 1.1.3  | 21 - 22           | 21.1.1 - 22.0.1   |
 
 If you want to use older build environment,
-please try [android-scala-plugin-1.3.2](https://github.com/saturday06/gradle-android-scala-plugin/tree/1.3.2)
+please try [android-mirah-plugin-1.3.2](https://github.com/saturday06/gradle-android-mirah-plugin/tree/1.3.2)
 
 ## Installation
 
@@ -42,7 +42,7 @@ please try [android-scala-plugin-1.3.2](https://github.com/saturday06/gradle-and
 buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:1.1.3"
-        classpath "de.ferey.gradle:gradle-android-scala-plugin:1.4"
+        classpath "de.ferey.gradle:gradle-android-mirah-plugin:1.4"
     }
 }
 ```
@@ -52,23 +52,23 @@ buildscript {
 `build.gradle`
 ```groovy
 apply plugin: "com.android.application"
-apply plugin: "de.ferey.android-scala"
+apply plugin: "de.ferey.android-mirah"
 ```
 
-### 3. Add scala-library dependency
+### 3. Add mirah-library dependency
 
-The plugin decides scala language version using scala-library's version.
+The plugin decides mirah language version using mirah-library's version.
 
 `build.gradle`
 ```groovy
 dependencies {
-    compile "org.scala-lang:scala-library:2.11.6"
+    compile "org.mirah-lang:mirah-library:2.11.6"
 }
 ```
 
-### 4. Put scala source files
+### 4. Put mirah source files
 
-Default locations are src/main/scala, src/androidTest/scala.
+Default locations are src/main/mirah, src/androidTest/mirah.
 You can customize those directories similar to java.
 
 `build.gradle`
@@ -76,14 +76,14 @@ You can customize those directories similar to java.
 android {
     sourceSets {
         main {
-            scala {
-                srcDir "path/to/main/scala" // default: "src/main/scala"
+            mirah {
+                srcDir "path/to/main/mirah" // default: "src/main/mirah"
             }
         }
 
         androidTest {
-            scala {
-                srcDir "path/to/androidTest/scala" // default: "src/androidTest/scala"
+            mirah {
+                srcDir "path/to/androidTest/mirah" // default: "src/androidTest/mirah"
             }
         }
     }
@@ -92,7 +92,7 @@ android {
 
 ### 5. Implement a workaround for DEX 64K Methods Limit
 
-The Scala Application generally suffers [DEX 64K Methods Limit](https://developer.android.com/tools/building/multidex.html).
+The Mirah Application generally suffers [DEX 64K Methods Limit](https://developer.android.com/tools/building/multidex.html).
 To avoid it we need to implement one of following workarounds.
 
 #### 5.1. Option 1: Use ProGuard
@@ -106,10 +106,10 @@ Sample proguard configuration here:
 -dontoptimize
 -dontobfuscate
 -dontpreverify
--dontwarn scala.**
+-dontwarn mirah.**
 -ignorewarnings
-# temporary workaround; see Scala issue SI-5397
--keep class scala.collection.SeqLike {
+# temporary workaround; see Mirah issue SI-5397
+-keep class mirah.collection.SeqLike {
     public protected *;
 }
 ```
@@ -122,7 +122,7 @@ Android comes with built in support for MultiDex. You will need to use
 subclass in order to support versions of Android prior to 5.0. You may still
 wish to use ProGuard for your production build.
 
-Using MultiDex with Scala is no different than with a normal Java application.
+Using MultiDex with Mirah is no different than with a normal Java application.
 See the [Android Documentation](https://developer.android.com/tools/building/multidex.html)
 and [MultiDex author's Documentation](https://github.com/casidiablo/multidex) for
 details.
@@ -144,7 +144,7 @@ android {
 }
 
 dependencies {
-    compile "org.scala-lang:scala-library:2.11.6"
+    compile "org.mirah-lang:mirah-library:2.11.6"
     compile "com.android.support:multidex:1.0.1"
 }
 ```
@@ -173,7 +173,7 @@ android {
 }
 
 dependencies {
-    compile "org.scala-lang:scala-library:2.11.6"
+    compile "org.mirah-lang:mirah-library:2.11.6"
     compile "com.android.support:multidex:1.0.1"
     androidTestCompile "com.android.support:multidex-instrumentation:1.0.1", { exclude module: "multidex" }
 }
@@ -187,8 +187,8 @@ Writing custom application class has stll many pitfalls.
 The application class must extend MultiDexApplication or override
 `Application#attachBaseContext` like following.
 
-`MyCustomApplication.scala`
-```scala
+`MyCustomApplication.mirah`
+```mirah
 package my.custom.application
 
 import android.app.Application
@@ -214,7 +214,7 @@ NOTE: The following cautions must be taken only on your android Application clas
 - The static fields in your **application class** will be loaded before the `MultiDex#install`be called! So the suggestion is to avoid static fields with types that can be placed out of main classes.dex file.
 - The methods of your **application class** may not have access to other classes that are loaded after your application class. As workaround for this, you can create another class (any class, in the example above, I use Runnable) and execute the method content inside it. Example:
 
-```scala
+```mirah
   override def onCreate = {
     super.onCreate
 
@@ -233,22 +233,22 @@ This section is copyed from
 
 ## Configuration
 
-You can configure scala compiler options as follows:
+You can configure mirah compiler options as follows:
 
 `build.gradle`
 ```groovy
-tasks.withType(ScalaCompile) {
-    // If you want to use scala compile daemon
-    scalaCompileOptions.useCompileDaemon = true
+tasks.withType(MirahCompile) {
+    // If you want to use mirah compile daemon
+    mirahCompileOptions.useCompileDaemon = true
     // Suppress deprecation warnings
-    scalaCompileOptions.deprecation = false
+    mirahCompileOptions.deprecation = false
     // Additional parameters
-    scalaCompileOptions.additionalParameters = ["-feature"]
+    mirahCompileOptions.additionalParameters = ["-feature"]
 }
 ```
 
 Complete list is described in
-http://www.gradle.org/docs/current/dsl/org.gradle.api.tasks.scala.ScalaCompileOptions.html
+http://www.gradle.org/docs/current/dsl/org.gradle.api.tasks.mirah.MirahCompileOptions.html
 
 ## Complete example of build.gradle with manually configured MultiDexApplication
 
@@ -261,7 +261,7 @@ buildscript {
 
     dependencies {
         classpath "com.android.tools.build:gradle:1.1.3"
-        classpath "de.ferey.gradle:gradle-android-scala-plugin:1.4"
+        classpath "de.ferey.gradle:gradle-android-mirah-plugin:1.4"
     }
 }
 
@@ -270,7 +270,7 @@ repositories {
 }
 
 apply plugin: "com.android.application"
-apply plugin: "de.ferey.android-scala"
+apply plugin: "de.ferey.android-mirah"
 
 android {
     compileSdkVersion "android-22"
@@ -296,28 +296,28 @@ android {
 
     sourceSets {
         main {
-            scala {
-                srcDir "path/to/main/scala" // default: "src/main/scala"
+            mirah {
+                srcDir "path/to/main/mirah" // default: "src/main/mirah"
             }
         }
 
         androidTest {
-            scala {
-                srcDir "path/to/androidTest/scala" // default: "src/androidTest/scala"
+            mirah {
+                srcDir "path/to/androidTest/mirah" // default: "src/androidTest/mirah"
             }
         }
     }
 }
 
 dependencies {
-    compile "org.scala-lang:scala-library:2.11.6"
+    compile "org.mirah-lang:mirah-library:2.11.6"
     compile "com.android.support:multidex:1.0.1"
     androidTestCompile "com.android.support:multidex-instrumentation:1.0.1", { exclude module: "multidex" }
 }
 
-tasks.withType(ScalaCompile) {
-    scalaCompileOptions.deprecation = false
-    scalaCompileOptions.additionalParameters = ["-feature"]
+tasks.withType(MirahCompile) {
+    mirahCompileOptions.deprecation = false
+    mirahCompileOptions.additionalParameters = ["-feature"]
 }
 ```
 
@@ -325,8 +325,8 @@ tasks.withType(ScalaCompile) {
 - 1.4 Support android plugin 1.1.3. Manual configuration for dex task is now unnecessary (contributed by [sgrif](https://github.com/sgrif))
 - 1.3.2 Fix unexpected annotation processor's warnings
 - 1.3.1 Support android plugin 0.12.2
-- 1.3 Incremental compilation support in scala 2.11
+- 1.3 Incremental compilation support in mirah 2.11
 - 1.2.1 Fix binary compatibility with JDK6
-- 1.2 Incremental compilation support in scala 2.10 / Flavors support
+- 1.2 Incremental compilation support in mirah 2.10 / Flavors support
 - 1.1 MultiDexApplication support
 - 1.0 First release

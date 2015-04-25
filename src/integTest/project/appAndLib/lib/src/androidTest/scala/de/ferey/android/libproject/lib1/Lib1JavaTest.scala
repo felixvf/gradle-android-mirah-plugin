@@ -4,6 +4,6 @@ import junit.framework.{TestCase, Assert}
 
 class Lib1JavaTest extends TestCase {
   def test1() {
-    Assert.assertEquals("Lib1Scala", new Lib1Scala().getName)
+    Assert.assertEquals("Lib1Mirah", new Lib1Mirah().getName)
   }
 }

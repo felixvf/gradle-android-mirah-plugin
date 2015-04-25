@@ -7,7 +7,7 @@ buildscript {
     }
     dependencies {
         classpath "com.android.tools.build:gradle:$androidPluginVersion"
-        classpath "de.ferey.gradle:gradle-android-scala-plugin:$androidScalaPluginVersion"
+        classpath "de.ferey.gradle:gradle-android-mirah-plugin:$androidMirahPluginVersion"
     }
 }
 

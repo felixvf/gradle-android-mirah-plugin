@@ -1,7 +1,7 @@
 package de.ferey.android.hello
 
-class FlavorScala {
+class FlavorMirah {
   def name() = {
-    "flavor2Scala"
+    "flavor2Mirah"
   }
 }

@@ -6,7 +6,7 @@ import android.widget.TextView
 import de.ferey.android.libproject.R
 import junit.framework.Assert
 import de.ferey.android.libproject.lib1.{Lib1Java, Lib1JavaActivity}
-import scala.io.Source
+import mirah.io.Source
 
 class Lib1JavaActivityTest extends ActivityInstrumentationTestCase2[Lib1JavaActivity](classOf[Lib1JavaActivity]) {
   def test1() {

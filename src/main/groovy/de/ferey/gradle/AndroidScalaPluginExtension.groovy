@@ -16,14 +16,14 @@
 package de.ferey.gradle
 
 /**
- * AndroidScalaPluginExtension has the configuration of scala.
+ * AndroidMirahPluginExtension has the configuration of mirah.
  */
-class AndroidScalaPluginExtension {
-    /** scalac additional parameters */
+class AndroidMirahPluginExtension {
+    /** mirahc additional parameters */
     public String addparams = ""
 
     /**
-     * Sets scalac additional parameters
+     * Sets mirahc additional parameters
      *
      * @param addparams the additional parameters.
      */
@@ -32,7 +32,7 @@ class AndroidScalaPluginExtension {
     }
 
     /**
-     * Sets scalac additional parameters
+     * Sets mirahc additional parameters
      *
      * @param target the additional parameters.
      */

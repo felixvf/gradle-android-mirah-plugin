@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import com.google.common.collect.ImmutableSet
-import scalaz.Scalaz._
+import mirahz.Mirahz._
 import de.ferey.android.libproject.lib1.Lib1Java
 import org.apache.commons.math3.analysis.function.Abs
 

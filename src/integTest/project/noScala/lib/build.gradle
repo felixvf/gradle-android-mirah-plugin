@@ -1,5 +1,5 @@
 apply plugin: "com.android.library"
-apply plugin: "de.ferey.android-scala"
+apply plugin: "de.ferey.android-mirah"
 
 android {
     compileSdkVersion androidPluginCompileSdkVersion

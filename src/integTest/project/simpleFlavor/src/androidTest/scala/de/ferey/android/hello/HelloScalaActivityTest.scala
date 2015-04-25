@@ -3,9 +3,9 @@ package de.ferey.android.hello
 import android.test.ActivityInstrumentationTestCase2
 import android.widget.TextView
 import junit.framework.Assert
-import scala.collection.concurrent.TrieMap
+import mirah.collection.concurrent.TrieMap
 
-class HelloScalaActivityTest extends ActivityInstrumentationTestCase2[HelloScalaActivity]("de.ferey.android.hello", classOf[HelloScalaActivity]) {
+class HelloMirahActivityTest extends ActivityInstrumentationTestCase2[HelloMirahActivity]("de.ferey.android.hello", classOf[HelloMirahActivity]) {
   var flavor: String = _
 
   override def setUp() {
@@ -17,12 +17,12 @@ class HelloScalaActivityTest extends ActivityInstrumentationTestCase2[HelloScala
   }
 
   def testSimpleActivityAssertion() {
-    Assert.assertEquals(f"${flavor}Java${flavor}Scala", getActivity.findViewById(R.id.scala_text_view).asInstanceOf[TextView].getText)
+    Assert.assertEquals(f"${flavor}Java${flavor}Mirah", getActivity.findViewById(R.id.mirah_text_view).asInstanceOf[TextView].getText)
   }
 
-  def testCallScalaLibraryClassOfNotUsedByMainApp() {
+  def testCallMirahLibraryClassOfNotUsedByMainApp() {
     val map = new TrieMap[String, String]
-    map.put("x", f"${flavor}Java${flavor}Scala")
-    Assert.assertEquals(map("x"), getActivity.findViewById(R.id.scala_text_view).asInstanceOf[TextView].getText)
+    map.put("x", f"${flavor}Java${flavor}Mirah")
+    Assert.assertEquals(map("x"), getActivity.findViewById(R.id.mirah_text_view).asInstanceOf[TextView].getText)
   }
 }

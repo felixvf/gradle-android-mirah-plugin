@@ -8,7 +8,7 @@ buildscript {
 
     dependencies {
         classpath "com.android.tools.build:gradle:$androidPluginVersion"
-        classpath "de.ferey.gradle:gradle-android-scala-plugin:$androidScalaPluginVersion"
+        classpath "de.ferey.gradle:gradle-android-mirah-plugin:$androidMirahPluginVersion"
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4+'
     }
 }
@@ -19,7 +19,7 @@ repositories {
 
 apply plugin: "com.android.application"
 apply plugin: "com.neenbedankt.android-apt"
-apply plugin: "de.ferey.android-scala"
+apply plugin: "de.ferey.android-mirah"
 
 android {
     compileSdkVersion androidPluginCompileSdkVersion
@@ -54,7 +54,7 @@ def AAVersion = "3.2"
 dependencies {
     apt "org.androidannotations:androidannotations:$AAVersion"
     compile "org.androidannotations:androidannotations-api:$AAVersion"
-    compile "org.scala-lang:scala-library:$scalaLibraryVersion"
+    compile "org.mirah-lang:mirah-library:$mirahLibraryVersion"
     compile "com.android.support:multidex:1.0.1"
     androidTestCompile "com.android.support:multidex-instrumentation:1.0.1", { exclude module: "multidex" }
 }

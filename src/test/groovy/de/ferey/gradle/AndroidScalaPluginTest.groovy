@@ -22,7 +22,7 @@ import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 
-class AndroidScalaPluginTest {
+class AndroidMirahPluginTest {
     Project project
 
     @Before
@@ -39,7 +39,7 @@ class AndroidScalaPluginTest {
     public void applyingBeforeAndroidPluginShouldThrowException() {
         project = ProjectBuilder.builder().build()
         try {
-            project.apply plugin: "de.ferey.android-scala"
+            project.apply plugin: "de.ferey.android-mirah"
             Assert.fail("Should throw Exception")
         } catch (GradleException e) {
         }
@@ -49,19 +49,19 @@ class AndroidScalaPluginTest {
     public void applyingAfterAndroidPluginShouldNeverThrowException() {
         project = ProjectBuilder.builder().build()
         project.apply plugin: androidPluginName()
-        project.apply plugin: "de.ferey.android-scala" // never throw Exception
+        project.apply plugin: "de.ferey.android-mirah" // never throw Exception
     }
 
     def getPlugin() {
-        project.apply plugin: "de.ferey.android-scala"
-        project.plugins.findPlugin(AndroidScalaPlugin.class)
+        project.apply plugin: "de.ferey.android-mirah"
+        project.plugins.findPlugin(AndroidMirahPlugin.class)
     }
 
     @Test
-    public void addDefaultScalaMainSourceSetToAndroidPlugin() {
+    public void addDefaultMirahMainSourceSetToAndroidPlugin() {
         def plugin = getPlugin()
         Assert.assertEquals([], plugin.sourceDirectorySetMap["main"].files.toList())
-        def src1 = new File(project.file("."), ["src", "main", "scala", "Src1.scala"].join(File.separator))
+        def src1 = new File(project.file("."), ["src", "main", "mirah", "Src1.mirah"].join(File.separator))
         src1.parentFile.mkdirs()
         src1.withWriter { it.write("class Src1{}") }
         Assert.assertEquals([src1], plugin.sourceDirectorySetMap["main"].files.toList())
@@ -69,16 +69,16 @@ class AndroidScalaPluginTest {
     }
 
     @Test
-    public void addCustomFlavorScalaSourceSetToAndroidPlugin() {
+    public void addCustomFlavorMirahSourceSetToAndroidPlugin() {
         project.android { productFlavors { customFlavor { } } }
         def plugin = getPlugin()
         Assert.assertEquals([], plugin.sourceDirectorySetMap["customFlavor"].files.toList())
 
-        def src = new File(project.file("."), ["src", "customFlavor", "scala", "Src.scala"].join(File.separator))
+        def src = new File(project.file("."), ["src", "customFlavor", "mirah", "Src.mirah"].join(File.separator))
         src.parentFile.mkdirs()
         src.withWriter { it.write("class Src{}") }
 
-        def testSrc = new File(project.file("."), ["src", "androidTestCustomFlavor", "scala", "TestSrc.scala"].join(File.separator))
+        def testSrc = new File(project.file("."), ["src", "androidTestCustomFlavor", "mirah", "TestSrc.mirah"].join(File.separator))
         testSrc.parentFile.mkdirs()
         testSrc.withWriter { it.write("class TestSrc{}") }
 
@@ -87,10 +87,10 @@ class AndroidScalaPluginTest {
     }
 
     @Test
-    public void addDefaultScalaAndroidTestSourceSetToAndroidPlugin() {
+    public void addDefaultMirahAndroidTestSourceSetToAndroidPlugin() {
         def plugin = getPlugin()
         Assert.assertEquals([], plugin.sourceDirectorySetMap["androidTest"].files.toList())
-        def src1 = new File(project.file("."), ["src", "androidTest", "scala", "Src1Test.scala"].join(File.separator))
+        def src1 = new File(project.file("."), ["src", "androidTest", "mirah", "Src1Test.mirah"].join(File.separator))
         src1.parentFile.mkdirs()
         src1.withWriter { it.write("class Src1Test{}") }
         Assert.assertEquals([], plugin.sourceDirectorySetMap["main"].files.toList())
@@ -98,58 +98,58 @@ class AndroidScalaPluginTest {
     }
 
     @Test
-    public void addCustomScalaMainSourceSetToAndroidPlugin() {
+    public void addCustomMirahMainSourceSetToAndroidPlugin() {
         def plugin = getPlugin()
-        def defaultSrc = new File(project.file("."), ["src", "main", "scala", "Src1.scala"].join(File.separator))
-        def customSrc = new File(project.file("."), ["custom", "sourceSet", "Src2.scala"].join(File.separator))
+        def defaultSrc = new File(project.file("."), ["src", "main", "mirah", "Src1.mirah"].join(File.separator))
+        def customSrc = new File(project.file("."), ["custom", "sourceSet", "Src2.mirah"].join(File.separator))
         defaultSrc.parentFile.mkdirs()
         defaultSrc.withWriter { it.write("class Src1{}") }
         customSrc.parentFile.mkdirs()
         customSrc.withWriter { it.write("class Src2{}") }
-        project.android { sourceSets { main { scala { srcDir "custom/sourceSet" } } } }
+        project.android { sourceSets { main { mirah { srcDir "custom/sourceSet" } } } }
         Assert.assertEquals([customSrc, defaultSrc], plugin.sourceDirectorySetMap["main"].files.toList().sort())
         Assert.assertEquals([], plugin.sourceDirectorySetMap["androidTest"].files.toList().sort())
     }
 
     @Test
-    public void addCustomScalaAndroidTestSourceSetToAndroidPlugin() {
+    public void addCustomMirahAndroidTestSourceSetToAndroidPlugin() {
         def plugin = getPlugin()
-        def defaultSrc = new File(project.file("."), ["src", "androidTest", "scala", "Src1.scala"].join(File.separator))
-        def customSrc = new File(project.file("."), ["custom", "sourceSet", "Src2.scala"].join(File.separator))
+        def defaultSrc = new File(project.file("."), ["src", "androidTest", "mirah", "Src1.mirah"].join(File.separator))
+        def customSrc = new File(project.file("."), ["custom", "sourceSet", "Src2.mirah"].join(File.separator))
         defaultSrc.parentFile.mkdirs()
         defaultSrc.withWriter { it.write("class Src1{}") }
         customSrc.parentFile.mkdirs()
         customSrc.withWriter { it.write("class Src2{}") }
-        project.android { sourceSets { androidTest { scala { srcDir "custom/sourceSet" } } } }
+        project.android { sourceSets { androidTest { mirah { srcDir "custom/sourceSet" } } } }
         Assert.assertEquals([], plugin.sourceDirectorySetMap["main"].files.toList().sort())
         Assert.assertEquals([customSrc, defaultSrc], plugin.sourceDirectorySetMap["androidTest"].files.toList().sort())
     }
 
     @Test
-    public void updateCustomScalaMainSourceSetToAndroidPlugin() {
+    public void updateCustomMirahMainSourceSetToAndroidPlugin() {
         def plugin = getPlugin()
-        def customSrc = new File(project.file("."), ["custom", "sourceSet", "Src2.scala"].join(File.separator))
+        def customSrc = new File(project.file("."), ["custom", "sourceSet", "Src2.mirah"].join(File.separator))
         customSrc.parentFile.mkdirs()
         customSrc.withWriter { it.write("class Src2{}") }
-        project.android { sourceSets { main { scala { srcDirs = ["custom/sourceSet"] } } } }
+        project.android { sourceSets { main { mirah { srcDirs = ["custom/sourceSet"] } } } }
         Assert.assertEquals([customSrc], plugin.sourceDirectorySetMap["main"].files.toList().sort())
         Assert.assertEquals([], plugin.sourceDirectorySetMap["androidTest"].files.toList().sort())
     }
 
     @Test
-    public void updateCustomScalaAndroidTestSourceSetToAndroidPlugin() {
+    public void updateCustomMirahAndroidTestSourceSetToAndroidPlugin() {
         def plugin = getPlugin()
-        def customSrc = new File(project.file("."), ["custom", "testSourceSet", "Src1Test.scala"].join(File.separator))
+        def customSrc = new File(project.file("."), ["custom", "testSourceSet", "Src1Test.mirah"].join(File.separator))
         customSrc.parentFile.mkdirs()
         customSrc.withWriter { it.write("class Src2Test{}") }
-        project.android { sourceSets { androidTest { scala { srcDirs = ["custom/testSourceSet"] } } } }
+        project.android { sourceSets { androidTest { mirah { srcDirs = ["custom/testSourceSet"] } } } }
         Assert.assertEquals([], plugin.sourceDirectorySetMap["main"].files.toList().sort())
         Assert.assertEquals([customSrc], plugin.sourceDirectorySetMap["androidTest"].files.toList().sort())
     }
 
     @Test
-    public void scalaVersionFromClasspath() {
+    public void mirahVersionFromClasspath() {
         def classpath = System.getProperty("java.class.path").split(File.pathSeparator).collect { new File(it) }
-        Assert.assertEquals("2.11.6", AndroidScalaPlugin.scalaVersionFromClasspath(classpath))
+        Assert.assertEquals("2.11.6", AndroidMirahPlugin.mirahVersionFromClasspath(classpath))
     }
 }

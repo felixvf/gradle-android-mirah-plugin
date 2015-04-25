@@ -11,10 +11,10 @@ import org.androidannotations.annotations.ViewById;
 @EActivity(R.layout.activity_hello)
 public class HelloActivity extends Activity {
     @ViewById
-    TextView scalaTextView;
+    TextView mirahTextView;
 
     @AfterViews
-    public void fillScalaTextView() {
-        scalaTextView.setText(new HelloJava().say() + "\n" + new HelloScala().say());
+    public void fillMirahTextView() {
+        mirahTextView.setText(new HelloJava().say() + "\n" + new HelloMirah().say());
     }
 }

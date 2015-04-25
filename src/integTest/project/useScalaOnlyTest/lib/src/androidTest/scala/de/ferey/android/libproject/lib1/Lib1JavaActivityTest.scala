@@ -4,9 +4,9 @@ import android.test.ActivityInstrumentationTestCase2
 import android.view.ViewGroup
 import android.widget.TextView
 import junit.framework.Assert
-import scala.collection.concurrent.TrieMap
-import scalaz._
-import Scalaz._
+import mirah.collection.concurrent.TrieMap
+import mirahz._
+import Mirahz._
 
 class Lib1JavaActivityTest extends ActivityInstrumentationTestCase2[Lib1JavaActivity](classOf[Lib1JavaActivity]) {
   def test1() {

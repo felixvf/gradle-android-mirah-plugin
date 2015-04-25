@@ -13,6 +13,6 @@ public class HelloActivityJavaTest extends ActivityInstrumentationTestCase2<Hell
     }
 
     public void test2() {
-        assertEquals("Hello. I'm Java !", ((TextView) getActivity().findViewById(R.id.scala_text_view)).getText());
+        assertEquals("Hello. I'm Java !", ((TextView) getActivity().findViewById(R.id.mirah_text_view)).getText());
     }
 }

@@ -1,5 +1,5 @@
 apply plugin: "com.android.library"
-apply plugin: "de.ferey.android-scala"
+apply plugin: "de.ferey.android-mirah"
 
 android {
     compileSdkVersion "android-22"
@@ -15,7 +15,7 @@ android {
 }
 
 dependencies {
-    compile "org.scala-lang:scala-library:2.11.6"
+    compile "org.mirah-lang:mirah-library:2.11.6"
     compile "com.android.support:multidex:1.0.1"
     androidTestCompile "com.android.support:multidex-instrumentation:1.0.1", { exclude module: "multidex" }
 }

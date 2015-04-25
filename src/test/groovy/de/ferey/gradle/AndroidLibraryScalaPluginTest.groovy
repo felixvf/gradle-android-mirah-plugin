@@ -15,7 +15,7 @@
  */
 package de.ferey.gradle
 
-class AndroidLibraryScalaPluginTest extends AndroidScalaPluginTest {
+class AndroidLibraryMirahPluginTest extends AndroidMirahPluginTest {
     @Override
     public String androidPluginName() {
         "android-library"

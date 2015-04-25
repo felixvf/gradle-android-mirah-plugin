@@ -4,8 +4,8 @@ import android.test.ActivityInstrumentationTestCase2;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class Lib1ScalaActivityJavaTest extends ActivityInstrumentationTestCase2<Lib1JavaActivity> {
-    public Lib1ScalaActivityJavaTest() {
+public class Lib1MirahActivityJavaTest extends ActivityInstrumentationTestCase2<Lib1JavaActivity> {
+    public Lib1MirahActivityJavaTest() {
         super(Lib1JavaActivity.class);
     }
 

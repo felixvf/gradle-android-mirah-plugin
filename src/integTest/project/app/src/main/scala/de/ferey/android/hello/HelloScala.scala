@@ -1,7 +1,7 @@
 package de.ferey.android.hello
 
-class HelloScala {
+class HelloMirah {
   def say = {
-    "Hello. I'm Scala !\n℀℁ℂ℃℄℅℆ℇ℈℉ℊℋℌℍℎℏ"
+    "Hello. I'm Mirah !\n℀℁ℂ℃℄℅℆ℇ℈℉ℊℋℌℍℎℏ"
   }
 }

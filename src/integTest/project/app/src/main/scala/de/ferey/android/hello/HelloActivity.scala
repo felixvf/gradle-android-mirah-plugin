@@ -8,7 +8,7 @@ class HelloActivity extends Activity {
   override def onCreate(savedInstanceState: Bundle) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_hello)
-    val scalaTextView = findViewById(R.id.scala_text_view).asInstanceOf[TextView]
-    scalaTextView.setText(new HelloJava().say + "\n" + new HelloScala().say)
+    val mirahTextView = findViewById(R.id.mirah_text_view).asInstanceOf[TextView]
+    mirahTextView.setText(new HelloJava().say + "\n" + new HelloMirah().say)
   }
 }
