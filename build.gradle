@@ -34,7 +34,7 @@ dependencies {
     compile localGroovy()
     compile "commons-io:commons-io:2.4"
     testCompile "com.android.tools.build:gradle:1.1.3"
-    testCompile "org.mirah:mirah-compiler:2.11.6"
+    testCompile "org.mirah:mirah:2.11.6"
 }
 
 description "Gradle Android Mirah Plugin adds mirah language support to official gradle android plugin."
