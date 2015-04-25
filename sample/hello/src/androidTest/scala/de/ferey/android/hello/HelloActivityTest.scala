@@ -1,4 +1,4 @@
-package jp.leafytree.android.hello
+package de.ferey.android.hello
 
 import android.test.ActivityInstrumentationTestCase2
 import android.widget.TextView

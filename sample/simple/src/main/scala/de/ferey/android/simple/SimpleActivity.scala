@@ -1,4 +1,4 @@
-package jp.leafytree.android.simple
+package de.ferey.android.simple
 
 import android.app.Activity
 import android.widget.TextView

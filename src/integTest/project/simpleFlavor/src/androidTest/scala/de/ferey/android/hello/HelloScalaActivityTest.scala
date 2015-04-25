@@ -1,11 +1,11 @@
-package jp.leafytree.android.hello
+package de.ferey.android.hello
 
 import android.test.ActivityInstrumentationTestCase2
 import android.widget.TextView
 import junit.framework.Assert
 import scala.collection.concurrent.TrieMap
 
-class HelloScalaActivityTest extends ActivityInstrumentationTestCase2[HelloScalaActivity]("jp.leafytree.android.hello", classOf[HelloScalaActivity]) {
+class HelloScalaActivityTest extends ActivityInstrumentationTestCase2[HelloScalaActivity]("de.ferey.android.hello", classOf[HelloScalaActivity]) {
   var flavor: String = _
 
   override def setUp() {

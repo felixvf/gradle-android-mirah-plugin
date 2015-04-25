@@ -19,7 +19,7 @@ repositories {
 
 apply plugin: "com.android.application"
 apply plugin: "com.neenbedankt.android-apt"
-apply plugin: "jp.leafytree.android-scala"
+apply plugin: "de.ferey.android-scala"
 
 android {
     compileSdkVersion androidPluginCompileSdkVersion
@@ -44,7 +44,7 @@ android {
 
 apt {
     arguments {
-        resourcePackageName "jp.leafytree.android.hello"
+        resourcePackageName "de.ferey.android.hello"
         androidManifestFile "src/main/AndroidManifest.xml"
     }
 }

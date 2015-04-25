@@ -1,4 +1,4 @@
-package jp.leafytree.android.hello;
+package de.ferey.android.hello;
 
 import android.app.Activity;
 import android.os.Bundle;

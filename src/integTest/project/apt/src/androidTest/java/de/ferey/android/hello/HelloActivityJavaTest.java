@@ -1,4 +1,4 @@
-package jp.leafytree.android.hello;
+package de.ferey.android.hello;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.TextView;
@@ -8,7 +8,7 @@ import scala.collection.concurrent.TrieMap;
 public class HelloActivityJavaTest extends ActivityInstrumentationTestCase2<HelloActivity_> {
     @SuppressWarnings("deprecation")
     public HelloActivityJavaTest() {
-        super("jp.leafytree.android.hello", HelloActivity_.class);
+        super("de.ferey.android.hello", HelloActivity_.class);
     }
 
     public void testSimpleAssertion() {

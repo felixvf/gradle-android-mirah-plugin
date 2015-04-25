@@ -1,4 +1,4 @@
-package jp.leafytree.android.libproject.lib1
+package de.ferey.android.libproject.lib1
 
 import junit.framework.{TestCase, Assert}
 

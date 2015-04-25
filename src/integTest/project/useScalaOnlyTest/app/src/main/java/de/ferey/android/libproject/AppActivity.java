@@ -1,10 +1,10 @@
-package jp.leafytree.android.libproject;
+package de.ferey.android.libproject;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import jp.leafytree.android.libproject.lib1.Lib1Java;
+import de.ferey.android.libproject.lib1.Lib1Java;
 
 public class AppActivity extends Activity {
     @Override

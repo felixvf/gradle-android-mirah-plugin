@@ -1,11 +1,11 @@
-package jp.leafytree.android.hello
+package de.ferey.android.hello
 
 import android.test.ActivityInstrumentationTestCase2
 import android.widget.TextView
 import junit.framework.Assert
 import scala.collection.concurrent.TrieMap
 
-class HelloActivityTest extends ActivityInstrumentationTestCase2[HelloActivity_]("jp.leafytree.android.hello", classOf[HelloActivity_]) {
+class HelloActivityTest extends ActivityInstrumentationTestCase2[HelloActivity_]("de.ferey.android.hello", classOf[HelloActivity_]) {
   def testSimpleAssertion() {
     Assert.assertTrue(true)
   }

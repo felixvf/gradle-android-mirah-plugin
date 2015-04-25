@@ -1,7 +1,7 @@
-package jp.leafytree.android.libproject.app
+package de.ferey.android.libproject.app
 
 import junit.framework.{TestCase, Assert}
-import jp.leafytree.android.libproject.lib1.Lib1Java
+import de.ferey.android.libproject.lib1.Lib1Java
 
 class Lib1JavaTest extends TestCase {
   def test1() {

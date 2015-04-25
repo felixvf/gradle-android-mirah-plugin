@@ -1,4 +1,4 @@
-package jp.leafytree.android.hello;
+package de.ferey.android.hello;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.TextView;
@@ -9,7 +9,7 @@ public class HelloJavaActivityTest extends ActivityInstrumentationTestCase2<Hell
 
     @SuppressWarnings("deprecation")
     public HelloJavaActivityTest() {
-        super("jp.leafytree.android.hello", HelloJavaActivity.class);
+        super("de.ferey.android.hello", HelloJavaActivity.class);
     }
 
     @Override

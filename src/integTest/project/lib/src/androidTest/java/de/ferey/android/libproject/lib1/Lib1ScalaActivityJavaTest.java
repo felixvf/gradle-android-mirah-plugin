@@ -1,4 +1,4 @@
-package jp.leafytree.android.libproject.lib1;
+package de.ferey.android.libproject.lib1;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.TextView;
@@ -8,7 +8,7 @@ import scala.collection.concurrent.TrieMap;
 
 public class Lib1ScalaActivityJavaTest extends ActivityInstrumentationTestCase2<Lib1ScalaActivity> {
     public Lib1ScalaActivityJavaTest() {
-        super("jp.leafytree.android.libproject.lib1", Lib1ScalaActivity.class);
+        super("de.ferey.android.libproject.lib1", Lib1ScalaActivity.class);
     }
 
     public void testSimpleAssertion() {

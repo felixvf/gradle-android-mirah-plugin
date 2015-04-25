@@ -17,7 +17,7 @@ repositories {
 }
 
 apply plugin: "com.android.application"
-apply plugin: "jp.leafytree.android-scala"
+apply plugin: "de.ferey.android-scala"
 
 android {
     compileSdkVersion androidPluginCompileSdkVersion
@@ -34,15 +34,15 @@ android {
 
     productFlavors {
         flavor1 {
-            applicationId "jp.leafytree.android.hello.flavor1"
+            applicationId "de.ferey.android.hello.flavor1"
         }
 
         flavor2 {
-            applicationId "jp.leafytree.android.hello.flavor2"
+            applicationId "de.ferey.android.hello.flavor2"
         }
 
         flavor3 {
-            applicationId "jp.leafytree.android.hello.flavor3"
+            applicationId "de.ferey.android.hello.flavor3"
         }
     }
 

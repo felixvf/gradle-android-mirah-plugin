@@ -1,11 +1,11 @@
-package jp.leafytree.android.libproject.app
+package de.ferey.android.libproject.app
 
 import android.test.ActivityInstrumentationTestCase2
 import android.view.ViewGroup
 import android.widget.TextView
-import jp.leafytree.android.libproject.R
+import de.ferey.android.libproject.R
 import junit.framework.Assert
-import jp.leafytree.android.libproject.lib1.{Lib1Java, Lib1JavaActivity}
+import de.ferey.android.libproject.lib1.{Lib1Java, Lib1JavaActivity}
 import scala.io.Source
 
 class Lib1JavaActivityTest extends ActivityInstrumentationTestCase2[Lib1JavaActivity](classOf[Lib1JavaActivity]) {

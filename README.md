@@ -52,7 +52,7 @@ buildscript {
 `build.gradle`
 ```groovy
 apply plugin: "com.android.application"
-apply plugin: "jp.leafytree.android-scala"
+apply plugin: "de.ferey.android-scala"
 ```
 
 ### 3. Add scala-library dependency
@@ -154,7 +154,7 @@ Change application class.
 `AndroidManifest.xml`
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="jp.leafytree.sample">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="de.ferey.sample">
     <application android:name="android.support.multidex.MultiDexApplication">
 </manifest>
 ```
@@ -270,7 +270,7 @@ repositories {
 }
 
 apply plugin: "com.android.application"
-apply plugin: "jp.leafytree.android-scala"
+apply plugin: "de.ferey.android-scala"
 
 android {
     compileSdkVersion "android-22"

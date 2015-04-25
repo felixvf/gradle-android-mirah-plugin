@@ -1,4 +1,4 @@
-package jp.leafytree.android.hello;
+package de.ferey.android.hello;
 
 public class FlavorJava {
     public String name() {

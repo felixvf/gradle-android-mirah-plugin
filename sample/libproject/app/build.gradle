@@ -1,5 +1,5 @@
 apply plugin: "com.android.application"
-apply plugin: "jp.leafytree.android-scala"
+apply plugin: "de.ferey.android-scala"
 
 android {
     compileSdkVersion "android-22"

@@ -1,8 +1,8 @@
-package jp.leafytree.android.libproject.app;
+package de.ferey.android.libproject.app;
 
 import junit.framework.TestCase;
 
-import jp.leafytree.android.libproject.lib1.Lib1Java;
+import de.ferey.android.libproject.lib1.Lib1Java;
 
 public class Lib1JavaTest extends TestCase {
     public void test1() {

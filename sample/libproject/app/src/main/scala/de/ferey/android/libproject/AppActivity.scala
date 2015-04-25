@@ -1,4 +1,4 @@
-package jp.leafytree.android.libproject
+package de.ferey.android.libproject
 
 import android.app.Activity
 import android.os.Bundle
@@ -6,7 +6,7 @@ import android.util.Log
 import android.widget.TextView
 import com.google.common.collect.ImmutableSet
 import scalaz.Scalaz._
-import jp.leafytree.android.libproject.lib1.Lib1Java
+import de.ferey.android.libproject.lib1.Lib1Java
 import org.apache.commons.math3.analysis.function.Abs
 
 class AppActivity extends Activity {

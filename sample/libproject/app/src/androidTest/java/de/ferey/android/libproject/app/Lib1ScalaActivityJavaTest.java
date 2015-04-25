@@ -1,10 +1,10 @@
-package jp.leafytree.android.libproject.app;
+package de.ferey.android.libproject.app;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.TextView;
 
-import jp.leafytree.android.libproject.R;
-import jp.leafytree.android.libproject.lib1.Lib1ScalaActivity;
+import de.ferey.android.libproject.R;
+import de.ferey.android.libproject.lib1.Lib1ScalaActivity;
 
 public class Lib1ScalaActivityJavaTest extends ActivityInstrumentationTestCase2<Lib1ScalaActivity> {
     public Lib1ScalaActivityJavaTest() {
