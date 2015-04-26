@@ -224,5 +224,6 @@ public class AndroidMirahPlugin implements Plugin<Project> {
             mirahCompileTask.mirahCompileOptions.additionalParameters = [extension.addparams]
         }
 
+        javaCompileTask.finalizedBy(mirahCompileTask)
     }
 }
