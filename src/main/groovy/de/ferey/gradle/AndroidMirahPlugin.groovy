@@ -120,11 +120,11 @@ public class AndroidMirahPlugin implements Plugin<Project> {
         try {
             def propertiesClass
             try {
-                propertiesClass = classLoader.loadClass("mirah.util.Properties\$")
+                propertiesClass = classLoader.loadClass("org.mirah.tool.MirahArguments")
             } catch (ClassNotFoundException e) {
                 return null
             }
-            def versionNumber = propertiesClass.MODULE$.mirahProps["maven.version.number"]
+            def versionNumber = propertiesClass.VERSION
             return new String(versionNumber) // Remove reference from ClassLoader
         } finally {
             if (classLoader instanceof Closeable) {
