@@ -153,7 +153,6 @@ public class AndroidMirahPlugin implements Plugin<Project> {
                 return
             }
             def include = "**/*.mirah"
-            sourceSet.java.filter.include(include);
             sourceSet.convention.plugins.mirah = new DefaultMirahSourceSet(sourceSet.name + "_AndroidMirahPlugin", fileResolver)
             def mirah = sourceSet.mirah
             mirah.filter.include(include);
@@ -169,7 +168,7 @@ public class AndroidMirahPlugin implements Plugin<Project> {
     void addAndroidMirahCompileTask(Object variant) {
         def javaCompileTask = variant.javaCompile
         def mirahSources = variant.variantData.variantConfiguration.sortedSourceProviders.inject([]) { acc, val ->
-            acc + val.java.sourceFiles
+            acc + val.mirah
         }
         addAndroidMirahCompileTask(javaCompileTask, mirahSources)
 
@@ -225,52 +224,5 @@ public class AndroidMirahPlugin implements Plugin<Project> {
             mirahCompileTask.mirahCompileOptions.additionalParameters = [extension.addparams]
         }
 
-        def dummyDestinationDir = new File(workDir, "javaCompileDummyDestination") // TODO: More elegant way
-        def dummySourceDir = new File(workDir, "javaCompileDummySource") // TODO: More elegant way
-        def javaCompileOriginalDestinationDir = new AtomicReference<File>()
-        def javaCompileOriginalSource = new AtomicReference<FileCollection>()
-        def javaCompileOriginalOptionsCompilerArgs = new AtomicReference<List<String>>()
-        javaCompileTask.doFirst {
-            // Disable compilation
-            javaCompileOriginalDestinationDir.set(javaCompileTask.destinationDir)
-            javaCompileOriginalSource.set(javaCompileTask.source)
-            javaCompileTask.destinationDir = dummyDestinationDir
-            if (!dummyDestinationDir.exists()) {
-                FileUtils.forceMkdir(dummyDestinationDir)
-            }
-            def dummySourceFile = new File(dummySourceDir, "Dummy.java")
-            if (!dummySourceFile.exists()) {
-                FileUtils.forceMkdir(dummySourceDir)
-                dummySourceFile.withWriter { it.write("class Dummy{}") }
-            }
-            javaCompileTask.source = [dummySourceFile]
-            def compilerArgs = javaCompileTask.options.compilerArgs
-            javaCompileOriginalOptionsCompilerArgs.set(compilerArgs)
-            javaCompileTask.options.compilerArgs = compilerArgs +  "-proc:none"
-        }
-        javaCompileTask.outputs.upToDateWhen { false }
-        javaCompileTask.doLast {
-            FileUtils.deleteDirectory(dummyDestinationDir)
-            javaCompileTask.destinationDir = javaCompileOriginalDestinationDir.get()
-            javaCompileTask.source = javaCompileOriginalSource.get()
-            javaCompileTask.options.compilerArgs = javaCompileOriginalOptionsCompilerArgs.get()
-
-            // R.java is appended lazily
-            mirahCompileTask.source = [] + new TreeSet(mirahCompileTask.source.collect { it } + javaCompileTask.source.collect { it }) // unique
-            def noisyProperties = ["compiler", "includeJavaRuntime", "incremental", "optimize", "useAnt"]
-            InvokerHelper.setProperties(mirahCompileTask.options,
-                javaCompileTask.options.properties.findAll { !noisyProperties.contains(it.key) })
-            noisyProperties.each { property ->
-                // Suppress message from deprecated/experimental property as possible
-                if (!javaCompileTask.options.hasProperty(property) || !mirahCompileTask.options.hasProperty(property)) {
-                    return
-                }
-                if (mirahCompileTask.options[property] != javaCompileTask.options[property]) {
-                    mirahCompileTask.options[property] = javaCompileTask.options[property]
-                }
-            }
-            mirahCompileTask.execute()
-            project.logger.lifecycle(mirahCompileTask.path)
-        }
     }
 }
