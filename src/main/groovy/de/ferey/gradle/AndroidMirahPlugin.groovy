@@ -200,15 +200,11 @@ public class AndroidMirahPlugin implements Plugin<Project> {
         // To prevent locking classes.jar by JDK6's URLClassLoader
         def libraryClasspath = javaCompileTask.classpath.grep { it.name != "classes.jar" }
         def mirahVersion = mirahVersionFromClasspath(libraryClasspath)
-        if (!mirahVersion) {
-            return
-        }
-        project.logger.info("mirah-library version=$mirahVersion detected")
-        def zincConfigurationName = "androidMirahPluginZincFor" + javaCompileTask.name
-        def zincConfiguration = project.configurations.findByName(zincConfigurationName)
-        if (!zincConfiguration) {
-            zincConfiguration = project.configurations.create(zincConfigurationName)
-            project.dependencies.add(zincConfigurationName, "com.typesafe.zinc:zinc:0.3.7")
+        if (mirahVersion) {
+            project.logger.info("mirah version=$mirahVersion detected")
+        } else {
+            mirahVersion = "0.1.5-SNAPSHOT" // constant...
+            project.logger.info("mirah version=$mirahVersion assumed")
         }
         def compilerConfigurationName = "androidMirahPluginMirahCompilerFor" + javaCompileTask.name
         def compilerConfiguration = project.configurations.findByName(compilerConfigurationName)
@@ -224,7 +220,6 @@ public class AndroidMirahPlugin implements Plugin<Project> {
         mirahCompileTask.mirahCompileOptions.encoding = javaCompileTask.options.encoding
         mirahCompileTask.classpath = javaCompileTask.classpath + project.files(androidPlugin.androidBuilder.bootClasspath)
         mirahCompileTask.mirahClasspath = compilerConfiguration.asFileTree
-        mirahCompileTask.zincClasspath = zincConfiguration.asFileTree
         mirahCompileTask.mirahCompileOptions.incrementalOptions.analysisFile = new File(workDir, "analysis.txt")
         if (extension.addparams) {
             mirahCompileTask.mirahCompileOptions.additionalParameters = [extension.addparams]
