@@ -114,7 +114,7 @@ public class AndroidMirahPlugin implements Plugin<Project> {
      * @param classpath the classpath contains mirah-library
      * @return mirah version
      */
-    static String mirahVersionFromClasspath(Collection<File> classpath) {
+    static String mirahVersionFromClasspath(Iterable<File> classpath) {
         def urls = classpath.collect { it.toURI().toURL() }
         def classLoader = new URLClassLoader(urls.toArray(new URL[0]))
         try {
@@ -197,8 +197,7 @@ public class AndroidMirahPlugin implements Plugin<Project> {
         def workDir = new File([baseWorkDir, "tasks", taskName].join(File.separator))
 
         // To prevent locking classes.jar by JDK6's URLClassLoader
-        def libraryClasspath = javaCompileTask.classpath.grep { it.name != "classes.jar" }
-        def mirahVersion = mirahVersionFromClasspath(libraryClasspath)
+        def mirahVersion = mirahVersionFromClasspath(project.getBuildscript().getConfigurations().getAt("classpath"))
         if (mirahVersion) {
             project.logger.info("mirah version=$mirahVersion detected")
         } else {
