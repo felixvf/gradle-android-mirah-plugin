@@ -86,10 +86,6 @@ public class AndroidMirahPlugin implements Plugin<Project> {
         project.tasks.findByName("preBuild").doLast {
             FileUtils.forceMkdir(baseWorkDir)
         }
-
-        project.tasks.withType(MirahCompile) {
-            mirahCompileOptions.useAnt = false
-        }
     }
 
     /**
