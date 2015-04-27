@@ -196,7 +196,6 @@ public class AndroidMirahPlugin implements Plugin<Project> {
         def taskName = javaCompileTask.name.replace("Java", "Mirah")
         def workDir = new File([baseWorkDir, "tasks", taskName].join(File.separator))
 
-        // To prevent locking classes.jar by JDK6's URLClassLoader
         def mirahVersion = mirahVersionFromClasspath(project.getBuildscript().getConfigurations().getAt("classpath"))
         if (mirahVersion) {
             project.logger.info("mirah version=$mirahVersion detected")
