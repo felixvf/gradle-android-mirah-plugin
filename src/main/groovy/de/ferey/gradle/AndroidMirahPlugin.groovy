@@ -200,7 +200,7 @@ public class AndroidMirahPlugin implements Plugin<Project> {
         if (mirahVersion) {
             project.logger.info("mirah version=$mirahVersion detected")
         } else {
-            mirahVersion = "0.1.5-SNAPSHOT" // constant...
+            mirahVersion = "0.1.4" // constant...
             project.logger.info("mirah version=$mirahVersion assumed")
         }
         def compilerConfigurationName = "androidMirahPluginMirahCompilerFor" + javaCompileTask.name
