@@ -214,6 +214,7 @@ public class AndroidMirahPlugin implements Plugin<Project> {
         mirahCompileTask.targetCompatibility = javaCompileTask.targetCompatibility
         mirahCompileTask.mirahCompileOptions.encoding = javaCompileTask.options.encoding
         mirahCompileTask.classpath = javaCompileTask.classpath + project.files(androidPlugin.androidBuilder.bootClasspath)
+        mirahCompileTask.options.bootClasspath = androidPlugin.androidBuilder.bootClasspath
         mirahCompileTask.mirahClasspath = compilerConfiguration.asFileTree
         mirahCompileTask.mirahCompileOptions.incrementalOptions.analysisFile = new File(workDir, "analysis.txt")
         if (extension.addparams) {
