@@ -34,6 +34,8 @@ import java.util.concurrent.atomic.AtomicReference
  * AndroidMirahPlugin adds mirah language support to official gradle android plugin.
  */
 public class AndroidMirahPlugin implements Plugin<Project> {
+    final static String DEFAULT_MIRAH_VERSION = "0.1.4"
+    
     private final FileResolver fileResolver
     @VisibleForTesting
     final Map<String, SourceDirectorySet> sourceDirectorySetMap = new HashMap<>()
@@ -200,7 +202,7 @@ public class AndroidMirahPlugin implements Plugin<Project> {
         if (mirahVersion) {
             project.logger.info("mirah version=$mirahVersion detected")
         } else {
-            mirahVersion = "0.1.4" // constant...
+            mirahVersion = DEFAULT_MIRAH_VERSION
             project.logger.info("mirah version=$mirahVersion assumed")
         }
         def compilerConfigurationName = "androidMirahPluginMirahCompilerFor" + javaCompileTask.name
