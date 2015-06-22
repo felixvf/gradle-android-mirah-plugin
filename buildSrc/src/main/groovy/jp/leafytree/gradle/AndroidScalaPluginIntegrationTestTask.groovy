@@ -35,10 +35,10 @@ public class AndroidMirahPluginIntegrationTestTask extends DefaultTask {
         ].each { projectName, runOnTravis ->
             def gradleArgs = ["clean", "connectedCheck", "uninstallAll"]
             [
-                    ["2.2.1", true,  "0.1.5-SNAPSHOT", "1.1.3", "android-22", "22.0.1", "8", "22"],
-                    ["2.2.1", false, "0.1.4", "1.1.3", "android-22", "22.0.1", "8", "22"],
-                    ["2.2.1", false, "0.1.5-SNAPSHOT", "1.1.3", "android-22", "22.0.1", "21", "22"],
-                    ["2.2.1", false, "0.1.4", "1.1.3", "android-22", "22.0.1", "21", "22"],
+                    ["2.5-rc-1", true,  "0.1.4", "1.1.3", "android-22", "22.0.1", "8", "22"],
+                    ["2.5-rc-1", false, "0.1.3", "1.1.3", "android-22", "22.0.1", "8", "22"],
+                    ["2.5-rc-1", false, "0.1.4", "1.1.3", "android-22", "22.0.1", "21", "22"],
+                    ["2.5-rc-1", false, "0.1.3", "1.1.3", "android-22", "22.0.1", "21", "22"],
             ].each { testParameters ->
                 if (!travis || (runOnTravis && testParameters[1])) {
                     def gradleVersion = testParameters[0]
