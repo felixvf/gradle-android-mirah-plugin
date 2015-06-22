@@ -196,6 +196,7 @@ public class AndroidMirahPlugin implements Plugin<Project> {
 
         def mirahVersion = mirahVersionFromClasspath(project.getBuildscript().getConfigurations().getAt("classpath"))
         if (mirahVersion) {
+            mirahVersion = mirahVersion.replace(".dev","-SNAPSHOT")
             project.logger.info("mirah version=$mirahVersion detected")
         } else {
             mirahVersion = DEFAULT_MIRAH_VERSION
