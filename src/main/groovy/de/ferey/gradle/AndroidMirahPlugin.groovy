@@ -168,7 +168,7 @@ public class AndroidMirahPlugin implements Plugin<Project> {
         def mirahSources = variant.variantData.variantConfiguration.sortedSourceProviders.inject([]) { acc, val ->
             acc + val.mirah
         }
-        addAndroidMirahCompileTask(javaCompileTask, mirahSources)
+        def mirahCompileTask = addAndroidMirahCompileTask(javaCompileTask, mirahSources)
 
         def flavor = variant.flavorName.capitalize()
         def buildType = variant.buildType.name.capitalize()
@@ -183,14 +183,15 @@ public class AndroidMirahPlugin implements Plugin<Project> {
 
         def unitTestTaskName = javaCompileTask.name.replaceFirst(/Java$/, 'UnitTestJava')
         project.getTasksByName(unitTestTaskName, false).each {
-            addAndroidMirahCompileTask(it, files)
+            def testMirahCompileTask = addAndroidMirahCompileTask(it, files)
+            testMirahCompileTask.dependsOn(mirahCompileTask)
         }
     }
 
     /**
      * Updates AndroidPlugin's compilation task to support mirah.
      */
-    void addAndroidMirahCompileTask(JavaCompile javaCompileTask, List<File> mirahSources) {
+    Object addAndroidMirahCompileTask(JavaCompile javaCompileTask, List<File> mirahSources) {
         def taskName = javaCompileTask.name.replace("Java", "Mirah")
         def workDir = new File([baseWorkDir, "tasks", taskName].join(File.separator))
 
@@ -223,5 +224,7 @@ public class AndroidMirahPlugin implements Plugin<Project> {
         }
 
         javaCompileTask.finalizedBy(mirahCompileTask)
+        
+        return mirahCompileTask;
     }
 }
