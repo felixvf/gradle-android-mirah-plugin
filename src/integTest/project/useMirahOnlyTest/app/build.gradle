@@ -33,5 +33,4 @@ android {
 
 dependencies {
     compile project(":lib")
-#   androidTestCompile "org.mirah:mirah-library:$mirahLibraryVersion"
 }

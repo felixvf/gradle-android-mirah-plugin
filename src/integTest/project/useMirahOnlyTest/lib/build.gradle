@@ -36,7 +36,6 @@ android {
 dependencies {
     compile "com.android.support:multidex:1.0.1"
     androidTestCompile "com.android.support:multidex-instrumentation:1.0.1", { exclude module: "multidex" }
-#   androidTestCompile "org.mirah:mirah-library:$mirahLibraryVersion"
 
     androidTestCompile "org.apache.commons:commons-lang3:3.3.2"
     androidTestCompile "org.apache.commons:commons-math3:3.2"
