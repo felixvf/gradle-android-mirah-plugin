@@ -25,10 +25,9 @@ See also sample projects at https://github.com/felixvf/gradle-android-mirah-plug
 
 ## Supported versions
 
-| Mirah  | Gradle | Android Plugin | compileSdkVersion | buildToolsVersion |
-| ------ | ------ | -------------- | ----------------- | ----------------- |
-| 0.1.5-SNAPSHOT | 2.2.1  | 1.1.0 - 1.1.3  | 21 - 22           | 21.1.1 - 22.0.1   |
-| 0.1.4 | 2.2.1  | 1.1.0 - 1.1.3  | 21 - 22           | 21.1.1 - 22.0.1   |
+| Mirah          | Gradle       | Android Plugin | compileSdkVersion | buildToolsVersion |
+| -------------- | ------------ | -------------- | ----------------- | ----------------- |
+| 0.1.4 - 0.2.1  | 2.2.1  - 2.5 | 1.1.0 - 1.1.3  | 21 - 22           | 21.1.1 - 22.0.1   |
 
 ## Installation
 

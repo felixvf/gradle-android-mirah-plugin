@@ -1,6 +1,12 @@
 apply plugin: "com.android.application"
 apply plugin: "de.ferey.android-mirah"
 
+buildscript {
+    dependencies {
+        classpath 'org.mirah:mirah:0.2.1'
+    }
+}
+
 android {
     compileSdkVersion androidPluginCompileSdkVersion
     buildToolsVersion androidPluginBuildToolsVersion

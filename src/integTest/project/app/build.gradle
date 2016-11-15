@@ -9,6 +9,7 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:$androidPluginVersion"
         classpath "de.ferey.gradle:gradle-android-mirah-plugin:$androidMirahPluginVersion"
+        classpath 'org.mirah:mirah:0.2.1'
     }
 }
 
