@@ -15,6 +15,6 @@ public class HelloActivity extends Activity {
 
     @AfterViews
     public void fillMirahTextView() {
-        mirahTextView.setText(new HelloJava().say() + "\n" + new HelloMirah().say());
+        mirahTextView.setText(new HelloJava().say() /*+ "\n" + new HelloMirah().say()*/); // Joint compilation is currently not supported
     }
 }

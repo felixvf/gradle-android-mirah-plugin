@@ -9,6 +9,7 @@ public class HelloJavaActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hello);
         TextView mirahTextView = (TextView) findViewById(R.id.mirah_text_view);
-        mirahTextView.setText(new FlavorJava().name() + new FlavorMirah().name());
+//      mirahTextView.setText(new FlavorJava().name() + new FlavorMirah().name());
+        mirahTextView.setText(new FlavorJava().name()/* + new FlavorMirah().name()*/); // Joint compilation is currently not supported
     }
 }

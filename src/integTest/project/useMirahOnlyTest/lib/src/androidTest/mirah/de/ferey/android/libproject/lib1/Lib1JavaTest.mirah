@@ -1,10 +1,10 @@
 package de.ferey.android.libproject.lib1
 
-import junit.framework.{TestCase, Assert}
+import junit.framework.TestCase
+import junit.framework.Assert
 
-class Lib1JavaTest extends TestCase {
-  def test1() {
-    Assert.assertEquals("Lib1Java", new Lib1Java().getName)
-    Assert.assertEquals(List("Lib1Java").last, Option(new Lib1Java().getName).get)
-  }
-}
+class Lib1JavaTest < TestCase
+  def test1:void
+    Assert.assertEquals("Lib1Java", Lib1Java.new.getName)
+  end
+end
