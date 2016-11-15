@@ -5,7 +5,8 @@ before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq expect libstdc++6:i386 lib32z1
   - export COMPONENTS=build-tools-22.0.1,android-22,android-18,sys-img-armeabi-v7a-android-18,extra-google-m2repository,extra-android-m2repository,extra-android-support
-  - curl -L https://raw.github.com/embarkmobile/android-sdk-installer/version-2/android-sdk-installer | bash /dev/stdin --install=$COMPONENTS
+  # The Android SDK License may be valid for the Travis run, and then terminates automatically.
+  - curl -L https://raw.github.com/embarkmobile/android-sdk-installer/version-2/android-sdk-installer | bash /dev/stdin --install=$COMPONENTS --accept=android-sdk-license-c81a61d9
   - source ~/.android-sdk-installer/env
   - export TERM=dumb # to get clean gradle output
 
