@@ -17,7 +17,7 @@ before_install:
 
 script:
   - ./gradlew --debug check
-  - ./gradlew --debug uploadArchives
+# - ./gradlew --debug uploadArchives
   - ./gradlew --stop
   - ./gradlew --debug integTest
 
