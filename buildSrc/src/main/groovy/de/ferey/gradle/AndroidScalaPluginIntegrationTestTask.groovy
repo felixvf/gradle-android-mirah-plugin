@@ -58,7 +58,9 @@ public class AndroidMirahPluginIntegrationTestTask extends DefaultTask {
                 distributionPath: "wrapper/dists",
                 zipStoreBase: "GRADLE_USER_HOME",
                 zipStorePath: "wrapper/dists",
-                distributionUrl: "http://services.gradle.org/distributions/gradle-" + gradleVersion + "-bin.zip",
+//              distributionUrl: "http://services.gradle.org/distributions/gradle-" + gradleVersion + "-bin.zip",                 // Unfortunately, we cannot use the official build currently, as
+                distributionUrl: "https://software.ferey.de/dist/org.gradle/gradle/2.5/gradle-2.5-20150625122655%2B0000-bin.zip", // Mirah support by gradle has not become mainstream.
+                distributionSha256Sum: "e939b9bfb233521a8da127a2642224b3082442612f3859df42d265335ac90ec6",
         ])
         gradleWrapperProperties
     }
