@@ -82,7 +82,7 @@ android {
 ```groovy
 buildscript {
     repositories {
-        mavenCentral()
+        jcenter()
     }
 
     dependencies {
