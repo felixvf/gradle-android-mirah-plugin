@@ -72,7 +72,7 @@ public class AndroidMirahPluginIntegrationTestTask extends DefaultTask {
                 snaphotRepositoryUrl: snaphotRepositoryUrl,
                 mirahLibraryVersion: mirahLibraryVersion,
                 mirahDependencyVersion: mirahLibraryVersion.split("\\.").take(2).join("."),
-                androidMirahPluginVersion: "1.5-SNAPSHOT",
+                androidMirahPluginVersion: "2.2-SNAPSHOT",
                 androidPluginVersion: androidPluginVersion,
                 androidPluginCompileSdkVersion: androidPluginCompileSdkVersion,
                 androidPluginBuildToolsVersion: androidPluginBuildToolsVersion,

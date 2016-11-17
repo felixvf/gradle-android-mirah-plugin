@@ -47,7 +47,7 @@ dependencies {
 
 description "Gradle Android Mirah Plugin adds mirah language support to official gradle android plugin."
 group = "de.ferey.gradle"
-version = "1.5-SNAPSHOT"
+version = "2.2-SNAPSHOT"
 sourceCompatibility = JavaVersion.VERSION_1_6
 targetCompatibility = JavaVersion.VERSION_1_6
 
