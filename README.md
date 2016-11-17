@@ -75,24 +75,6 @@ android {
 }
 ```
 
-## Configuration
-
-You can configure mirah compiler options as follows:
-
-`build.gradle`
-```groovy
-tasks.withType(MirahCompile) {
-    // If you want to use mirah compile daemon
-    mirahCompileOptions.useCompileDaemon = true
-    // Suppress deprecation warnings
-    mirahCompileOptions.deprecation = false
-    // Additional parameters
-    mirahCompileOptions.additionalParameters = ["-feature"]
-}
-```
-
-Complete list is described in
-http://www.gradle.org/docs/current/dsl/org.gradle.api.tasks.mirah.MirahCompileOptions.html
 
 ## Complete example of build.gradle with manually configured MultiDexApplication
 
@@ -156,11 +138,6 @@ android {
 dependencies {
     compile "com.android.support:multidex:1.0.1"
     androidTestCompile "com.android.support:multidex-instrumentation:1.0.1", { exclude module: "multidex" }
-}
-
-tasks.withType(MirahCompile) {
-    mirahCompileOptions.deprecation = false
-    mirahCompileOptions.additionalParameters = ["-feature"]
 }
 ```
 

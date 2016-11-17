@@ -46,6 +46,3 @@ dependencies {
     androidTestCompile "com.android.support:multidex-instrumentation:1.0.1", { exclude module: "multidex" }
 }
 
-tasks.withType(MirahCompile) {
-    mirahCompileOptions.deprecation = false
-}
