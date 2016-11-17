@@ -35,8 +35,8 @@ public class AndroidMirahPluginIntegrationTestTask extends DefaultTask {
         ].each { projectName, runOnTravis ->
             def gradleArgs = ["clean", "connectedCheck", "uninstallAll"]
             [
-                    ["2.5-rc-1", true,  "0.2.1", "1.1.3", "android-22", "22.0.1",  "8", "22"],
-                    ["2.5-rc-1", false, "0.2.1", "1.1.3", "android-22", "23.0.2", "21", "22"],
+                    ["2.6", true,  "0.2.1", "1.1.3", "android-22", "22.0.1",  "8", "22"],
+                    ["2.6", false, "0.2.1", "1.1.3", "android-22", "23.0.2", "21", "22"],
             ].each { testParameters ->
                 if (!travis || (runOnTravis && testParameters[1])) {
                     def gradleVersion = testParameters[0]
@@ -56,9 +56,8 @@ public class AndroidMirahPluginIntegrationTestTask extends DefaultTask {
                 distributionPath: "wrapper/dists",
                 zipStoreBase: "GRADLE_USER_HOME",
                 zipStorePath: "wrapper/dists",
-//              distributionUrl: "http://services.gradle.org/distributions/gradle-" + gradleVersion + "-bin.zip",                 // Unfortunately, we cannot use the official build currently, as
-                distributionUrl: "https://software.ferey.de/dist/org.gradle/gradle/2.5/gradle-2.5-20150625122655%2B0000-bin.zip", // Mirah support by gradle has not become mainstream.
-                distributionSha256Sum: "e939b9bfb233521a8da127a2642224b3082442612f3859df42d265335ac90ec6",
+                distributionUrl: "http://services.gradle.org/distributions/gradle-" + gradleVersion + "-bin.zip",                 // Unfortunately, we cannot use the official build currently, as
+                distributionSha256Sum: "18a98c560af231dfa0d3f8e0802c20103ae986f12428bb0a6f5396e8f14e9c83",
         ])
         gradleWrapperProperties
     }
