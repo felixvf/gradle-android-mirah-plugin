@@ -23,9 +23,9 @@ import org.gradle.api.ProjectConfigurationException
 import org.gradle.api.file.FileCollection
 import org.gradle.api.file.SourceDirectorySet
 import org.gradle.api.internal.file.FileResolver
-import org.gradle.api.internal.tasks.DefaultMirahSourceSet
+import org.ysb33r.gradle.mirah.MirahSourceSet
 import org.gradle.api.tasks.compile.JavaCompile
-import org.gradle.api.tasks.mirah.MirahCompile
+import org.ysb33r.gradle.mirah.MirahCompile
 import org.gradle.util.ConfigureUtil
 
 import javax.inject.Inject
@@ -151,7 +151,7 @@ public class AndroidMirahPlugin implements Plugin<Project> {
                 return
             }
             def include = "**/*.mirah"
-            sourceSet.convention.plugins.mirah = new DefaultMirahSourceSet(sourceSet.name + "_AndroidMirahPlugin", fileResolver)
+            sourceSet.convention.plugins.mirah = new MirahSourceSet(sourceSet.name + "_AndroidMirahPlugin", fileResolver)
             def mirah = sourceSet.mirah
             mirah.filter.include(include);
             def mirahSrcDir = ["src", sourceSet.name, "mirah"].join(File.separator)
@@ -214,11 +214,16 @@ public class AndroidMirahPlugin implements Plugin<Project> {
         mirahCompileTask.destinationDir = javaCompileTask.destinationDir
         mirahCompileTask.sourceCompatibility = javaCompileTask.sourceCompatibility
         mirahCompileTask.targetCompatibility = javaCompileTask.targetCompatibility
-        mirahCompileTask.mirahCompileOptions.encoding = javaCompileTask.options.encoding
-        mirahCompileTask.classpath = javaCompileTask.classpath + project.files(androidPlugin.androidBuilder.bootClasspath)
-        mirahCompileTask.options.bootClasspath = androidPlugin.androidBuilder.bootClasspath
+        /*
+          The destinationDir also becomes classpath again, because the Java compiler has already added stuff to the destintion dir which we want to access.
+          This may be a problem, in case mirahc finds .class files which mirahc has generated itself before.
+          In this case, it may happen that mirahc loads the (outdated) .class files instead of generating new .class files from .mirah source files.
+          In case such a problem surfaces, we need to solve this problem. We probably could change the destination directory of the javac compilation step,
+          use that directory as classpath, and copy .class files from there into our destinationDir after mirahc has succeeded.
+        */
+        mirahCompileTask.classpath = javaCompileTask.classpath + project.files(javaCompileTask.destinationDir)
+        mirahCompileTask.bootClasspath = project.files(androidPlugin.androidBuilder.bootClasspath)
         mirahCompileTask.mirahClasspath = compilerConfiguration.asFileTree
-        mirahCompileTask.mirahCompileOptions.incrementalOptions.analysisFile = new File(workDir, "analysis.txt")
         if (extension.addparams) {
             mirahCompileTask.mirahCompileOptions.additionalParameters = [extension.addparams]
         }
