@@ -27,7 +27,7 @@ See also sample projects at https://github.com/felixvf/gradle-android-mirah-plug
 
 | Mirah          | Gradle       | Android Plugin | compileSdkVersion | buildToolsVersion |
 | -------------- | ------------ | -------------- | ----------------- | ----------------- |
-| 0.1.4 - 0.2.1  | 2.2.1  - 2.5 | 1.1.0 - 1.1.3  | 21 - 22           | 21.1.1 - 22.0.1   |
+| 0.1.4 - 0.2.1  | 3.1          | 2.2.0 - 2.2.2  | 21 - 22           | 21.1.1 - 22.0.1   |
 
 ## Installation
 
@@ -37,8 +37,8 @@ See also sample projects at https://github.com/felixvf/gradle-android-mirah-plug
 ```groovy
 buildscript {
     dependencies {
-        classpath "com.android.tools.build:gradle:1.1.3"
-        classpath "de.ferey.gradle:gradle-android-mirah-plugin:1.4"
+        classpath "com.android.tools.build:gradle:2.2.2"
+        classpath "de.ferey.gradle:gradle-android-mirah-plugin:2.2.0"
     }
 }
 ```
@@ -86,8 +86,8 @@ buildscript {
     }
 
     dependencies {
-        classpath "com.android.tools.build:gradle:1.1.3"
-        classpath "de.ferey.gradle:gradle-android-mirah-plugin:1.4"
+        classpath "com.android.tools.build:gradle:2.2.2"
+        classpath "de.ferey.gradle:gradle-android-mirah-plugin:2.2.0"
     }
 }
 
@@ -142,7 +142,8 @@ dependencies {
 ```
 
 ## Changelog
-- 1.4 fork [gradle-android-mirah-plugin](https://github.com/felixvf/gradle-android-mirah-plugin) from [gradle-android-scala-plugin](https://github.com/saturday06/gradle-android-mirah-plugin)
+- 2.2 Support Gradle Android Plugin 2.2.2.
+- 1.5 fork [gradle-android-mirah-plugin](https://github.com/felixvf/gradle-android-mirah-plugin) from [gradle-android-scala-plugin](https://github.com/saturday06/gradle-android-mirah-plugin)
 - 1.4 Support android plugin 1.1.3. Manual configuration for dex task is now unnecessary (contributed by [sgrif](https://github.com/sgrif))
 - 1.3.2 Fix unexpected annotation processor's warnings
 - 1.3.1 Support android plugin 0.12.2
