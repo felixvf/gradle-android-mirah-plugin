@@ -169,23 +169,6 @@ public class AndroidMirahPlugin implements Plugin<Project> {
             acc + val.mirah
         }
         def mirahCompileTask = addAndroidMirahCompileTask(javaCompileTask, mirahSources)
-
-        def flavor = variant.flavorName.capitalize()
-        def buildType = variant.buildType.name.capitalize()
-        def files = [
-            "",
-            buildType,
-            flavor,
-            flavor + buildType,
-        ].unique().collect { project.fileTree("src/test$it/mirah") }.inject([]) { list, dir ->
-            list + dir
-        }
-
-        def unitTestTaskName = javaCompileTask.name.replaceFirst(/Java$/, 'UnitTestJava')
-        project.getTasksByName(unitTestTaskName, false).each {
-            def testMirahCompileTask = addAndroidMirahCompileTask(it, files)
-            testMirahCompileTask.dependsOn(mirahCompileTask)
-        }
     }
 
     /**
@@ -222,7 +205,7 @@ public class AndroidMirahPlugin implements Plugin<Project> {
           use that directory as classpath, and copy .class files from there into our destinationDir after mirahc has succeeded.
         */
         mirahCompileTask.classpath = javaCompileTask.classpath + project.files(javaCompileTask.destinationDir)
-        mirahCompileTask.bootClasspath = project.files(androidPlugin.androidBuilder.bootClasspath)
+        mirahCompileTask.bootClasspath = project.files(androidPlugin.androidBuilder.getBootClasspath(false))
         mirahCompileTask.mirahClasspath = compilerConfiguration.asFileTree
         if (extension.addparams) {
             mirahCompileTask.mirahCompileOptions.additionalParameters = [extension.addparams]

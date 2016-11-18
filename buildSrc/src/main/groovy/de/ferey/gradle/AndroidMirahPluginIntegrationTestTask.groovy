@@ -35,8 +35,8 @@ public class AndroidMirahPluginIntegrationTestTask extends DefaultTask {
         ].each { projectName, runOnTravis ->
             def gradleArgs = ["clean", "connectedCheck", "uninstallAll"]
             [
-                    ["2.6", true,  "0.2.1", "1.1.3", "android-22", "22.0.1",  "8", "22"],
-                    ["2.6", false, "0.2.1", "1.1.3", "android-22", "23.0.2", "21", "22"],
+                    ["3.1", true,  "0.2.1", "2.2.2", "android-22", "22.0.1",  "8", "22"],
+                    ["3.1", false, "0.2.1", "2.2.2", "android-22", "23.0.2", "21", "22"],
             ].each { testParameters ->
                 if (!travis || (runOnTravis && testParameters[1])) {
                     def gradleVersion = testParameters[0]
@@ -57,7 +57,10 @@ public class AndroidMirahPluginIntegrationTestTask extends DefaultTask {
                 zipStoreBase: "GRADLE_USER_HOME",
                 zipStorePath: "wrapper/dists",
                 distributionUrl: "http://services.gradle.org/distributions/gradle-" + gradleVersion + "-bin.zip",                 // Unfortunately, we cannot use the official build currently, as
-                distributionSha256Sum: "18a98c560af231dfa0d3f8e0802c20103ae986f12428bb0a6f5396e8f14e9c83",
+                distributionSha256Sum: [
+                	"2.6": "18a98c560af231dfa0d3f8e0802c20103ae986f12428bb0a6f5396e8f14e9c83",
+                	"3.1": "c7de3442432253525902f7e8d7eac8b5fd6ce1623f96d76916af6d0e383010fc",
+                ][gradleVersion]
         ])
         gradleWrapperProperties
     }
