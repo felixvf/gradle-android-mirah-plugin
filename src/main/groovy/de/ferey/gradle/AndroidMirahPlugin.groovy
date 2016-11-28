@@ -175,7 +175,7 @@ public class AndroidMirahPlugin implements Plugin<Project> {
      * Updates AndroidPlugin's compilation task to support mirah.
      */
     Object addAndroidMirahCompileTask(JavaCompile javaCompileTask, List<File> mirahSources) {
-        def taskName = javaCompileTask.name.replace("Java", "Mirah")
+        def taskName = javaCompileTask.name.replaceFirst('Javac$', "Mirahc")
         def workDir = new File([baseWorkDir, "tasks", taskName].join(File.separator))
 
         def mirahVersion = mirahVersionFromClasspath(project.getBuildscript().getConfigurations().getAt("classpath"))
