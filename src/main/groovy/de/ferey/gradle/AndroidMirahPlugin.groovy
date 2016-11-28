@@ -190,7 +190,6 @@ public class AndroidMirahPlugin implements Plugin<Project> {
      */
     Object addAndroidMirahCompileTask(JavaCompile javaCompileTask, List<File> mirahSources) {
         def taskName = javaCompileTask.name.replaceFirst('Javac$', "Mirahc")
-        def workDir = new File([baseWorkDir, "tasks", taskName].join(File.separator))
 
         def mirahVersion = mirahVersionFromClasspath(project.getBuildscript().getConfigurations().getAt("classpath"))
         if (mirahVersion) {
