@@ -79,7 +79,7 @@ public class AndroidMirahPlugin implements Plugin<Project> {
             updateAndroidSourceSetsExtension()
             androidExtension.sourceSets.each { it.java.srcDirs(it.mirah.srcDirs) }
             def mainVariants = (isLibrary ? androidExtension.libraryVariants : androidExtension.applicationVariants)
-            def allVariants = mainVariants + androidExtension.testVariants // + androidExtension.unitTestVariants
+            def allVariants = mainVariants + androidExtension.testVariants + androidExtension.unitTestVariants
             allVariants.each { variant ->
                 addAndroidMirahCompileTask(variant)
             }
