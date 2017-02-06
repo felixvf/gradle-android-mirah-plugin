@@ -204,6 +204,16 @@ public class AndroidMirahPlugin implements Plugin<Project> {
         def intermediateMirahDestinationDir = new File(originalDestinationDir.parent,"${originalDestinationDir.name}_mirah")
         
         javaCompileTask.destinationDir = intermediateJavaDestinationDir
+        /*
+        	Register intermediateMirahDestinationDir as an output of the JavaCompileTask.
+        	Actually, it is just the output of the MirahCompile task, but com.android.build.gradle.tasks.factory.AndroidUnitTest.ConfigAction.execute() induces
+        	a calls to javaCompileTask.getOutputs().getFiles() _after_ we are called here.
+        	Hence, the evaluation will not yield the originalDestinationDir, but the intermediateJavaDestinationDir, which does not contain our output.
+        	Thus, we add intermediateMirahDestinationDir to the result of javaCompileTask.getOutputs().
+        	We make the contents of intermediateJavaDestinationDir as well as intermediateMirahDestinationDir equivalent to the contents of originalDestinationDir (below in copyMergeClassFilesTask).
+        	Hence, either using both intermediateJavaDestinationDir and intermediateMirahDestinationDir as classpath entries, or using originalDestinationDir as classpath entry, should not make a difference.
+        */
+        javaCompileTask.outputs.dir(intermediateMirahDestinationDir) 
         
         def compilerConfigurationName = "androidMirahPluginMirahCompilerFor" + javaCompileTask.name
         def compilerConfiguration = project.configurations.findByName(compilerConfigurationName)
