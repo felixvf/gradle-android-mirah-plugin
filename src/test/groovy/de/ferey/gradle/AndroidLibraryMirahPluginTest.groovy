@@ -18,6 +18,6 @@ package de.ferey.gradle
 class AndroidLibraryMirahPluginTest extends AndroidMirahPluginTest {
     @Override
     public String androidPluginName() {
-        "android-library"
+        "com.android.library"
     }
 }

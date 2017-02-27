@@ -32,7 +32,7 @@ class AndroidMirahPluginTest {
     }
 
     public String androidPluginName() {
-        "android"
+        "com.android.application"
     }
 
     @Test
