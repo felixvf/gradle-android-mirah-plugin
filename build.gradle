@@ -27,9 +27,6 @@ apply plugin: "idea"
 
 repositories {
     mavenCentral()
-}
-
-repositories {
     maven {
       url "https://plugins.gradle.org/m2/"
     }
