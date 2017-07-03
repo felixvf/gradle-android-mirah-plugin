@@ -13,6 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
 apply plugin: "java"
 apply plugin: "groovy"
 apply plugin: "maven"
@@ -21,12 +27,6 @@ apply plugin: "idea"
 
 repositories {
     mavenCentral()
-}
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
 }
 
 repositories {
