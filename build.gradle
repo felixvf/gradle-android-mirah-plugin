@@ -40,7 +40,7 @@ dependencies {
     compile localGroovy()
     compile "commons-io:commons-io:2.4"
     compile "com.google.guava:guava:19.0"
-    compile "org.ysb33r.gradle:gradle-mirah-plugin:1.0-beta1-SNAPSHOT"
+    compile "org.ysb33r.gradle:gradle-mirah-plugin:1.0-beta1"
     testCompile "com.android.tools.build:gradle:2.2.3"
     testCompile "org.mirah:mirah:0.2.1"
     testCompile "junit:junit:4.12"
