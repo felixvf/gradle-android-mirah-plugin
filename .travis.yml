@@ -1,5 +1,6 @@
 language: java
-jdk: oraclejdk7
+jdk:
+  - oraclejdk8 # The Android Plugin for Gradle comes in .class files which require JDK 8.
 before_install:
   # Install base Android SDK
   - sudo apt-get update -qq
